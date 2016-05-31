@@ -1,6 +1,6 @@
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.apache.commons.io.FileUtils;
 import models.Model;
 
 import java.io.*;
@@ -59,8 +59,8 @@ public class Main {
      * @throws IOException
      */
     private void processTmpCsv() throws IOException {
-        File root = new File("tmp");
-        File[] list = root.listFiles();
+        File tmpDir = new File("tmp");
+        File[] list = tmpDir.listFiles();
         // инициализация ридеров
         List<CSVReader> readers = new LinkedList<CSVReader>();
         for (int i = 0; i < list.length; i++) {
@@ -86,6 +86,7 @@ public class Main {
                 writeToCsv(currentModel.getLine());
             }
         }
+        FileUtils.cleanDirectory(tmpDir);
     }
 
     private List<Model> processCsv(String fileName) throws IOException {
