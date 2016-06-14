@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Main {
     public static final String OUTFILE_CSV = "outfile.csv";
-    public static final String IN_CSV = "CC_ABONS/PROBLEMS.TXT";
+    public static final String IN_CSV = "CC_ABONS/PROBLEMS.txt";
     CSVWriter csvWriter;
     long startTime = System.currentTimeMillis();
 
@@ -32,7 +32,7 @@ public class Main {
         try {
             csvWriter = new CSVWriter(new FileWriter(OUTFILE_CSV));
 
-            //List<Model> models = processCsv(IN_CSV);
+            List<Model> models = processCsv(IN_CSV);
             processTmpCsv();
             // Сортировка по ИД
             //models.sort(new AbonIdComparator<Model>());

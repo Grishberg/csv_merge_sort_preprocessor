@@ -6,6 +6,8 @@
 .idea
 # Package Files #
 *.jar
+/CC_ABONS.zip
+/*.iml
 *.war
 *.ear
 
